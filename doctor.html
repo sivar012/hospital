@@ -1,0 +1,43 @@
+<!-- views/doctors.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctors</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Doctors List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Specialty</th>
+        <th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% doctors.forEach(doctor => { %>
+        <tr>
+          <td><%= doctor.id %></td>
+          <td><%= doctor.name %></td>
+          <td><%= doctor.specialty %></td>
+          <td><%= doctor.contact %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <h2>Add Doctor</h2>
+  <form action="/add-doctor" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="specialty">Specialty:</label>
+    <input type="text" id="specialty" name="specialty">
+    <label for="contact">Contact:</label>
+    <input type="text" id="contact" name="contact">
+    <button type="submit">Add Doctor</button>
+  </form>
+  <a href="/">Home</a>
+</body>
+</html>
+
